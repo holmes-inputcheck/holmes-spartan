@@ -14,11 +14,11 @@ git clone https://github.com/holmes-inputcheck/holmes-spartan.git
 cd holmes-spartan
 ```
 
-2. [~30 minutes to 1 hr] Run the benchmarks and extrapolation scripts
+2. [1 hr] Run the benchmarks and extrapolation scripts
 
 ```
 cargo +nightly build --release
-./target/release/range_nizk
+./target/release/range_nizk [30 minutes]
 ./target/release/range_snark
 ./target/release/chisquare_nizk && jl_nizk_extrapolate.py
 ./target/release/chisquare_snark && jl_snark_extrapolate.py
