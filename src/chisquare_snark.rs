@@ -19,7 +19,7 @@ fn main() -> std::io::Result<()> {
     let dim_sizes = vec![(1, 10), (4, 10), (4, 50)];
     let num_vars = vec![1048576 * 2 * 2, 1048576 *  2 * 2 * 2]; // number of variables generated total in JL and private data loads
     let num_cons = vec![1048576 * 2 * 2, 1048576 *  2 * 2 * 2]; // total number of OT triples generated during JL
-    let num_non_zero_entries = vec![1048576 * 2 * 2 * 2, 1048576 * 2 * 2 * 2 * 2];
+    let num_non_zero_entries = vec![1048576 * 2 * 2, 1048576 * 2 * 2 * 2];
     let num_inputs = 4 * k + 2; // total number of public inputs
 
     let mut out_it = 0;
