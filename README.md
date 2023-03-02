@@ -2,9 +2,10 @@
 
 1. [10 minutes] Ensure that the prerequisites are built.
 
-Install [rustup](https://rustup.rs/)
+Install and update [rustup](https://rustup.rs/)
 ```
 rustup install nightly
+rustup update
 ```
 
 Clone the repository
