@@ -268,7 +268,6 @@ fn main() -> std::io::Result<()> {
 
     // create a commitment to the R1CS instance
     let (comm, decomm) = SNARK::encode(&inst, &gens);
-    println!("give me a test\n");
     
     // produce a proof of satisfiability
     let mut prover_transcript = Transcript::new(b"snark_example");
