@@ -20,8 +20,8 @@ cd holmes-spartan
 cargo +nightly build --release
 ./target/release/range_nizk [30 minutes]
 ./target/release/range_snark [1 hr]
-./target/release/chisquare_nizk && jl_nizk_extrapolate.py
-./target/release/chisquare_snark && jl_snark_extrapolate.py
+./target/release/chisquare_nizk && python3 jl_nizk_extrapolate.py
+./target/release/chisquare_snark && python3 jl_snark_extrapolate.py
 ```
 
 3. [1 minute] Interpret the results
