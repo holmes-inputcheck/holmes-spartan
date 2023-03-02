@@ -34,14 +34,14 @@ cat range_check_500000_nizk.txt
 
 For the SNARK range check numbers:
 ```
-cat range_check_100000_nizk.txt
+cat range_check_100000_snark.txt
 ```
 
 For the NIZK ZK-friendly sketching numbers:
 ```
-cat jl_100000_snark.txt
-cat jl_200000_snark.txt
-cat jl_500000_snark.txt
+cat jl_100000_nizk.txt
+cat jl_200000_nizk.txt
+cat jl_500000_nizk.txt
 ```
 
 For the SNARK ZK-friendly sketching numbers:
