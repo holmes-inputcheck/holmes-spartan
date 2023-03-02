@@ -4,8 +4,8 @@
 
 Install and update [rustup](https://rustup.rs/)
 ```
-rustup install nightly
 rustup update
+rustup install nightly
 ```
 
 Clone the repository
