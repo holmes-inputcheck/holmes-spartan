@@ -10,7 +10,7 @@ Either run:
 ```
 python3 start_spartan_bench.py
 ```
-This will require your local machine to remain connected to Terminal for around 3 hours to finish all the benchmarking
+This will require your local machine to remain connected to SSH for around 3 hours to finish all the benchmarking
 
 2b. Or you can ssh into the AMI instance, and then run a screen. Then, you can run the tests on the cluster without being actively connected over SSH.
 ```
