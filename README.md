@@ -1,6 +1,6 @@
 ## Setup for HOLMES Spartan benchmarking:
 
-## On the AMI
+## On the AMI (recommended)
 
 1. Follow the instructions [here](https://github.com/holmes-inputcheck/holmes) to start a cluster
 
