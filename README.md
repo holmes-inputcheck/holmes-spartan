@@ -3,13 +3,16 @@
 ## On the AMI
 
 1. Follow the instructions [here](https://github.com/holmes-inputcheck/holmes) to start a cluster
-2a. Either run:
+
+2a. 
+
+Either run:
 ```
 python3 start_spartan_bench.py
 ```
 This will require your local machine to remain connected to Terminal for around 3 hours to finish all the benchmarking
 
-Or you can ssh into the AMI instance, and then run a screen. Then, you can essentially run the tests on the cluster without being actively connected to the AMI over SSH.
+2b. Or you can ssh into the AMI instance, and then run a screen. Then, you can run the tests on the cluster without being actively connected over SSH.
 ```
 ssh -i /path/to/holmes.pem ubuntu@ami.public.ip
 screen
