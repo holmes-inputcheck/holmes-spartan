@@ -19,7 +19,9 @@ screen
 cd ~/HOLMES/holmes_spartan; ./run-tests.sh
 ```
 
-## On the local machine
+## On the local machine (not recommended)
+
+Prerequisite: Your local machine should have over 72GB of memory to run these benchmarks.
 
 1. [10 minutes] Ensure that the prerequisites are built.
 

@@ -67,7 +67,7 @@ fn run_snark_range(a: u32, b: u32, x: u32, num_range_checks: usize, num_vars: us
   let mut first_bit_decomp = vec![Scalar::zero().to_bytes(); size_of_decomp];
   let binary_low = format!("{:b}", x - a);
   println!("Running {:?} range checks with decomposition size 2^{:?} in SNARK", num_range_checks, size_of_decomp);
-  println!("num vars {:?} num cons {:?} num nonzero {:?}", num_vars, num_cons, num_non_zero_entries);
+  //println!("num vars {:?} num cons {:?} num nonzero {:?}", num_vars, num_cons, num_non_zero_entries);
 
 
   for (i, c) in binary_low.chars().rev().enumerate() {
@@ -146,24 +146,24 @@ fn run_snark_range(a: u32, b: u32, x: u32, num_range_checks: usize, num_vars: us
   //println!("is satisfied!");
   
   //println!("Number of variables {:?}\nNumber of constraints {:?}\nNumber of inputs {:?}\n", num_vars, num_cons, num_inputs);
-  println!("Time elapsed setting up circuit is: {:?}\n", init_duration);
+  //println!("Time elapsed setting up circuit is: {:?}\n", init_duration);
 
   // produce public parameters
   let gen_start = Instant::now();
   let gens = SNARKGens::new(num_cons, num_vars, num_inputs, num_non_zero_entries);
   let gen_duration = gen_start.elapsed();
-  println!("Time elapsed in generating public parameters is: {:?}\n", gen_duration);
+  //println!("Time elapsed in generating public parameters is: {:?}\n", gen_duration);
 
   // create a commitment to the R1CS instance
   let (comm, decomm) = SNARK::encode(&inst, &gens);
-  println!("Generated commitment\n");
+  //println!("Generated commitment\n");
 
   // produce a proof of satisfiability
   let mut prover_transcript = Transcript::new(b"snark_example");
   let proof_start = Instant::now();
   let proof = SNARK::prove(&inst, &comm, &decomm, assignment_vars, &assignment_inputs, &gens, &mut prover_transcript);
   let proof_duration = proof_start.elapsed();
-  println!("Time elapsed in proof is: {:?}", proof_duration);
+  //println!("Time elapsed in proof is: {:?}", proof_duration);
 
   // verify the proof of satisfiability
 
@@ -177,7 +177,7 @@ fn run_snark_range(a: u32, b: u32, x: u32, num_range_checks: usize, num_vars: us
       .is_ok());
       v_duration_1 = verify_start.elapsed();
   }
-  println!("1 verifier time: {:?}", v_duration_1);
+  //println!("1 verifier time: {:?}", v_duration_1);
 
   // run 6 verifications in parallel, retrieve max
   let mut v_duration_6 = Duration::new(0, 0);
@@ -200,7 +200,7 @@ fn run_snark_range(a: u32, b: u32, x: u32, num_range_checks: usize, num_vars: us
       })
       .reduce(|| Duration::new(0, 0), |x, y| max(x, y));
   }
-  println!("6 verifier time: {:?}", v_duration_6);
+  //println!("6 verifier time: {:?}", v_duration_6);
 
   // run 10 verifications in parallel, retrieve max
   let mut v_duration_10 = Duration::new(0, 0);
@@ -223,9 +223,9 @@ fn run_snark_range(a: u32, b: u32, x: u32, num_range_checks: usize, num_vars: us
       })
       .reduce(|| Duration::new(0, 0), |x, y| max(x, y));
   }
-  println!("10 verifier time: {:?}", v_duration_10);
+  //println!("10 verifier time: {:?}", v_duration_10);
 
-  println!("proof verification successful!");
+  //println!("proof verification successful!");
 
   let two_party_duration = init_duration + proof_duration + v_duration_1;
   let six_party_duration = init_duration + proof_duration + v_duration_6;

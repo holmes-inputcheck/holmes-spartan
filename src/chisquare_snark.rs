@@ -252,19 +252,19 @@ fn main() -> std::io::Result<()> {
 
     
     //println!("Number of variables {:?}\nNumber of constraints {:?}\nNumber of inputs {:?}\n", num_vars, num_cons, num_inputs);
-    println!("Time elapsed setting up circuit is: {:?}\n", init_duration);
+    //println!("Time elapsed setting up circuit is: {:?}\n", init_duration);
     
     // produce public parameters
     let gen_start = Instant::now();
     let gens = SNARKGens::new(num_cons, num_vars, num_inputs, num_non_zero_entries);
     let gen_duration = gen_start.elapsed();
-    println!("Time elapsed in generating public parameters is: {:?}\n", gen_duration);
+    //println!("Time elapsed in generating public parameters is: {:?}\n", gen_duration);
 
     // ask the library to produce a synthentic R1CS instance
     let r1cs_start = Instant::now();
     //let (inst, vars, inputs) = Instance::produce_synthetic_uniform_r1cs(num_cons, num_vars, num_inputs);
     let r1cs_duration = r1cs_start.elapsed();
-    println!("Time elapsed in producing R1CS instance is: {:?}\n", r1cs_duration);
+    //println!("Time elapsed in producing R1CS instance is: {:?}\n", r1cs_duration);
 
     // create a commitment to the R1CS instance
     let (comm, decomm) = SNARK::encode(&inst, &gens);
@@ -274,7 +274,7 @@ fn main() -> std::io::Result<()> {
     let proof_start = Instant::now();
     let proof = SNARK::prove(&inst, &comm, &decomm, assignment_vars, &assignment_inputs, &gens, &mut prover_transcript);
     let proof_duration = proof_start.elapsed();
-    println!("Time elapsed in proof is: {:?}", proof_duration);
+    //println!("Time elapsed in proof is: {:?}", proof_duration);
 
     // verify the proof of satisfiability
 
@@ -288,7 +288,7 @@ fn main() -> std::io::Result<()> {
         .is_ok());
         v_duration_1 = verify_start.elapsed();
     }
-    println!("1 verifier time: {:?}", v_duration_1);
+    //println!("1 verifier time: {:?}", v_duration_1);
 
     // run 6 verifications in parallel, retrieve max
     let mut v_duration_6 = Duration::new(0, 0);
@@ -311,7 +311,7 @@ fn main() -> std::io::Result<()> {
         })
         .reduce(|| Duration::new(0, 0), |x, y| max(x, y));
     }
-    println!("6 verifier time: {:?}", v_duration_6);
+    //println!("6 verifier time: {:?}", v_duration_6);
 
     // run 10 verifications in parallel, retrieve max
     let mut v_duration_10 = Duration::new(0, 0);
@@ -334,9 +334,9 @@ fn main() -> std::io::Result<()> {
         })
         .reduce(|| Duration::new(0, 0), |x, y| max(x, y));
     }
-    println!("10 verifier time: {:?}", v_duration_10);
+    //println!("10 verifier time: {:?}", v_duration_10);
 
-    println!("proof verification successful!");
+    //println!("proof verification successful!");
 
     let two_party_duration = init_duration + proof_duration + v_duration_1;
     let six_party_duration = init_duration + proof_duration + v_duration_6;
