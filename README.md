@@ -16,7 +16,7 @@ This will require your local machine to remain connected to SSH for around 3 hou
 ```
 ssh -i ~/.ssh/HOLMES.pem ubuntu@ami.public.ip
 screen
-cd ~/HOLMES/holmes_spartan; ./run_tests.sh
+cd ~/HOLMES/holmes_spartan; ./run-tests.sh
 ```
 
 ## On the local machine
