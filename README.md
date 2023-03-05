@@ -14,7 +14,7 @@ This will require your local machine to remain connected to SSH for around 3 hou
 
 2b. Or you can ssh into the AMI instance, and then run a screen. Then, you can run the tests on the cluster without being actively connected over SSH.
 ```
-ssh -i /path/to/holmes.pem ubuntu@ami.public.ip
+ssh -i ~/.ssh/HOLMES.pem ubuntu@ami.public.ip
 screen
 cd ~/HOLMES/holmes_spartan; ./run_tests.sh
 ```
