@@ -2,7 +2,7 @@
 
 ## On the AMI (recommended)
 
-1. Follow the instructions [here](https://github.com/holmes-inputcheck/holmes) to start a cluster
+1. Follow the instructions [here](https://github.com/holmes-inputcheck/holmes-artifacts) to start a cluster
 
 2a. 
 
